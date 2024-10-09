@@ -104,23 +104,38 @@ const questions = [
 // Add your code underneath this comment.
 
 let count = 0;
-document.getElementById('submit').addEventListener('click', function() {
-    count++;
-   
+document.getElementById('submit').addEventListener('click', function () {
+  count++;
+
+  const element = document.getElementById('question')
+  element.innerText = questions[count].question;
+
+  const elements = document.getElementById("answer")
+  elements.innerText = questions[count].options[0]
+
+  const alements = document.getElementById("answer1")
+  alements.innerText = questions[count].options[1]
+
+  const alement = document.getElementById("answer2")
+  alement.innerText = questions[count].options[2]
+
+  const ilements = document.getElementById("answer3")
+  ilements.innerText = questions[count].options[3]
 });
 
-const element = document.getElementById('question')
-element.innerText = questions[count].question;
-
-const elements=document.getElementById("answer")
-elements.innerText=questions[0].options[0]
-
-const alements=document.getElementById("answer1")
-alements.innerText=questions[0].options[1]
-
-const alement=document.getElementById("answer2")
-alement.innerText=questions[0].options[2]
-
-const ilements=document.getElementById("answer3")
-ilements.innerText=questions[0].options[3]
-
+function firstClick(){
+  const element=document.getElementById ('answer')
+  element.style.backgroundColor="blue";
+}
+function secondClick(){
+  const elements=document.getElementById ('answer1')
+  elements.style.backgroundColor="red"; 
+}
+function thirdClick(){
+  const elements=document.getElementById ('answer2')
+  elements.style.backgroundColor="orange";
+}
+function fourthClick(){
+  const elements=document.getElementById ('answer3')
+  elements.style.backgroundColor="yellow";
+}
