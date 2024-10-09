@@ -104,3 +104,7 @@ const questions = [
 // Add your code underneath this comment.
 
 
+
+
+
+const element=document.getElementById("submit")
