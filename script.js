@@ -103,8 +103,24 @@ const questions = [
 
 // Add your code underneath this comment.
 
+let count = 0;
+document.getElementById('submit').addEventListener('click', function() {
+    count++;
+   
+});
 
+const element = document.getElementById('question')
+element.innerText = questions[count].question;
 
+const elements=document.getElementById("answer")
+elements.innerText=questions[0].options[0]
 
+const alements=document.getElementById("answer1")
+alements.innerText=questions[0].options[1]
 
-const element=document.getElementById("submit")
+const alement=document.getElementById("answer2")
+alement.innerText=questions[0].options[2]
+
+const ilements=document.getElementById("answer3")
+ilements.innerText=questions[0].options[3]
+
