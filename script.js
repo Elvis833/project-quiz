@@ -104,7 +104,7 @@ const questions = [
 // Add your code underneath this comment.
 
 let count = 0;
-document.getElementById('submit').addEventListener('click', function () {
+document.getElementById('submitButton').addEventListener('click', function () {
   count++;
 
   const element = document.getElementById('question')
@@ -123,19 +123,39 @@ document.getElementById('submit').addEventListener('click', function () {
   ilements.innerText = questions[count].options[3]
 });
 
-function firstClick(){
+function clearThebackground(){
   const element=document.getElementById ('answer')
-  element.style.backgroundColor="blue";
+  const elements=document.getElementById ('answer1')
+  const elements1=document.getElementById ('answer2')
+  const elements2=document.getElementById ('answer3')
+  element.style.backgroundColor="white";
+  elements.style.backgroundColor="white";
+  elements1.style.backgroundColor="white";
+  elements2.style.backgroundColor="white";
+}
+function firstClick(){
+  clearThebackground()
+  const element=document.getElementById ('answer')
+  element.style.backgroundColor="yellow";
 }
 function secondClick(){
+  clearThebackground()
   const elements=document.getElementById ('answer1')
-  elements.style.backgroundColor="red"; 
-}
-function thirdClick(){
-  const elements=document.getElementById ('answer2')
-  elements.style.backgroundColor="orange";
-}
-function fourthClick(){
-  const elements=document.getElementById ('answer3')
   elements.style.backgroundColor="yellow";
 }
+function thirdClick(){
+  clearThebackground()
+  const elements=document.getElementById ('answer2')
+  elements.style.backgroundColor="green";
+}
+function fourthClick(){
+  clearThebackground()
+  const elements=document.getElementById ('answer3')
+  elements.style.backgroundColor="red";
+}
+const element=document.getElementById ('submitButton')
+element.addEventListener('click',submitAnswer)
+function submitAnswer(){
+element.innerText= "Next question"
+}
+element.addEventListener('click', submitAnswer);
