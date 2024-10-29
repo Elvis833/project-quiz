@@ -100,62 +100,74 @@ const questions = [
     answer: "Rotorua"
   }
 ];
-
 // Add your code underneath this comment.
-
 let count = 0;
+
 document.getElementById('submitButton').addEventListener('click', function () {
-  count++;
+    if (count < questions.length) {
+        const question = document.getElementById('question');
+        question.innerText = questions[count].question;
 
-  const element = document.getElementById('question')
-  element.innerText = questions[count].question;
+        const answer1 = document.getElementById("answer1");
+        answer1.innerText = questions[count].options[0];
 
-  const elements = document.getElementById("answer")
-  elements.innerText = questions[count].options[0]
+        const answer2 = document.getElementById("answer2");
+        answer2.innerText = questions[count].options[1];
 
-  const alements = document.getElementById("answer1")
-  alements.innerText = questions[count].options[1]
+        const answer3 = document.getElementById("answer3");
+        answer3.innerText = questions[count].options[2];
 
-  const alement = document.getElementById("answer2")
-  alement.innerText = questions[count].options[2]
-
-  const ilements = document.getElementById("answer3")
-  ilements.innerText = questions[count].options[3]
+        const answer4 = document.getElementById("answer4");
+        answer4.innerText = questions[count].options[3];
+    } else {
+        alert("No more questions!");
+    }
 });
+function clearThebackground() {
+    const elements = ['answer1', 'answer2', 'answer3', 'answer4'];
+    elements.forEach(id => {
+        const element = document.getElementById(id);
+        element.style.backgroundColor = "white";
+    });
+}
+function highlightAnswer(answerId) {
+    clearThebackground();
+    const element = document.getElementById(answerId);
+    element.style.backgroundColor = "lightblue";
+}
+document.getElementById('answer1').addEventListener('click', () =>{
+highlightAnswer('answer1');
+selectAnswer('answer1');
+});
+document.getElementById('answer2').addEventListener('click', () => {
+    highlightAnswer('answer2');
+    selectAnswer('answer2');
+});
+document.getElementById('answer3').addEventListener('click', () => {
+  highlightAnswer('answer3');
+  selectAnswer('answer3');
+});
+document.getElementById('answer4').addEventListener('click', () => {
+  highlightAnswer('answer4');
+  selectAnswer('answer4');
+});
+function selectAnswer(elementId) {
+  const selectedElement = document.getElementById(elementId);
+  const selectedAnswer = selectedElement.innerText;
+  const correctAnswer = questions[count].answer;
 
-function clearThebackground(){
-  const element=document.getElementById ('answer')
-  const elements=document.getElementById ('answer1')
-  const elements1=document.getElementById ('answer2')
-  const elements2=document.getElementById ('answer3')
-  element.style.backgroundColor="white";
-  elements.style.backgroundColor="white";
-  elements1.style.backgroundColor="white";
-  elements2.style.backgroundColor="white";
+  if (selectedAnswer === correctAnswer) {
+      selectedElement.style.backgroundColor = "green"; 
+  } else {
+      selectedElement.style.backgroundColor = "red"; 
+      const correctElement = ['answer1', 'answer2', 'answer3', 'answer4'].find(id => {
+        const element = document.getElementById(id);
+        return element.innerText === correctAnswer;
+    });
+    if (correctElementId) {
+        const correctElement = document.getElementById(correctElementId);
+        correctElement.style.backgroundColor = "green";
+    } 
+  }
+count++;
 }
-function firstClick(){
-  clearThebackground()
-  const element=document.getElementById ('answer')
-  element.style.backgroundColor="yellow";
-}
-function secondClick(){
-  clearThebackground()
-  const elements=document.getElementById ('answer1')
-  elements.style.backgroundColor="yellow";
-}
-function thirdClick(){
-  clearThebackground()
-  const elements=document.getElementById ('answer2')
-  elements.style.backgroundColor="green";
-}
-function fourthClick(){
-  clearThebackground()
-  const elements=document.getElementById ('answer3')
-  elements.style.backgroundColor="red";
-}
-const element=document.getElementById ('submitButton')
-element.addEventListener('click',submitAnswer)
-function submitAnswer(){
-element.innerText= "Next question"
-}
-element.addEventListener('click', submitAnswer);

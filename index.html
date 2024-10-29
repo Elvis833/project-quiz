@@ -1,36 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App 30003</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="container">
         <h1> Elvis's Quiz App 30003 </h1>
         <p>Question 1 - Your score: 0 </p>
         <h2 id="question"> Whats my MF Name?</h2>
-        <div>
-            <button id="answer" onclick="firstClick(this)">Snoop Dogg</button>
-        </div>
-        <div>
-            <button id="answer1" onclick="secondClick(this)">Peter Griffin</button>
-        </div>
-        <div>
-            <button id="answer2" onclick="thirdClick(this)">Peter Parker</button>
-        </div>
-        <div>
-            <button id="answer3" onclick="fourthClick(this)">Bruce Wayne</button>
-        </div>
-        <div>
+        <div id="answers">
+            <button id="answer1" class="answer" onclick="firstClick(this)">Snoop Dogg</button>
+            <button id="answer2" class="answer" onclick="secondClick(this)">Peter Griffin</button>
+            <button id="answer3" class= "answer" onclick="thirdClick(this)">Peter Parker</button>
+            <button id="answer4" class= "answer" onclick="fourthClick(this)">Bruce Wayne</button>
             <button id="submitButton" onclick="submitAnswer()">Submit Answer</button>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
-
 </html>
